@@ -1,0 +1,122 @@
+﻿@model IEnumerable<PrayerasJyC.Models.Producto>
+
+<style>
+    .hero-banner { 
+        background: radial-gradient(circle at center, #1f1a3a 0%, #0d0d12 100%);
+        padding: 90px 20px; 
+        text-align: center;
+    }
+    .hero-banner h1 { 
+        font-size: 3.5rem; 
+        font-weight: 900; 
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #ff007f, #00f0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 15px;
+    }
+    .hero-banner p { color: #b3b3cc; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; }
+    
+    .btn-neon { 
+        background: #ff007f; 
+        color: white; 
+        padding: 14px 35px; 
+        border-radius: 4px; 
+        text-decoration: none; 
+        display: inline-block; 
+        font-weight: 800;
+        text-transform: uppercase;
+        box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+        transition: 0.3s;
+    }
+    .btn-neon:hover { background: #00f0ff; color: #000; box-shadow: 0 0 20px rgba(0, 240, 255, 0.8); }
+
+    /* Features Grid */
+    .features { display: flex; justify-content: space-around; flex-wrap: wrap; background: #14141f; padding: 25px 8%; border-y: 1px solid #222233; gap: 1rem; }
+    .feature-item { text-align: center; max-width: 220px; }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .feature-item h4 { color: #fff; font-size: 0.95rem; font-weight: 800; }
+    .feature-item p { color: #8080a0; font-size: 0.8rem; }
+
+    .section-title { text-align: center; margin: 60px 0 20px; font-size: 2rem; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+
+    .cards-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 20px 5%; }
+    .promo-card { background: #14141f; border: 1px solid #2a2a40; border-radius: 12px; width: 300px; overflow: hidden; transition: 0.3s; }
+    .promo-card:hover { transform: translateY(-8px); border-color: #ff007f; }
+    .promo-card img { width: 100%; height: 260px; object-fit: cover; }
+    .card-body { padding: 1.2rem; }
+    .badge { background: #00f0ff; color: #000; font-size: 0.7rem; font-weight: 900; padding: 4px 8px; border-radius: 3px; text-transform: uppercase; }
+    .card-title { font-size: 1.1rem; margin: 10px 0 5px; color: #fff; }
+    .card-price { font-size: 1.4rem; font-weight: 900; color: #ff007f; }
+
+    /* Testimonios */
+    .testimonials { padding: 60px 8%; text-align: center; background: #08080d; }
+    .testi-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+    .testi-card { background: #14141f; padding: 20px; border-radius: 8px; border: 1px solid #222233; max-width: 300px; text-align: left; }
+    .testi-card p { font-size: 0.9rem; color: #b3b3cc; font-style: italic; margin-bottom: 15px; }
+    .testi-author { color: #00f0ff; font-weight: 800; font-size: 0.85rem; }
+</style>
+
+<div class="hero-banner">
+    <h1>ESTILO URBANO & CUSTOM</h1>
+    <p>Playeras de alta densidad con estampados de durabilidad garantizada. Diseña tu concepto con JyC.</p>
+    <a asp-controller="Productos" asp-action="Index" class="btn-neon">Explorar Colección</a>
+</div>
+
+<div class="features">
+    <div class="feature-item">
+        <div class="feature-icon">🚚</div>
+        <h4>Envíos Rápidos</h4>
+        <p>Envíos seguros a todo México.</p>
+    </div>
+    <div class="feature-item">
+        <div class="feature-icon">✨</div>
+        <h4>Calidad Premium</h4>
+        <p>100% Algodón de alta durabilidad.</p>
+    </div>
+    <div class="feature-item">
+        <div class="feature-icon">🎨</div>
+        <h4>100% Personalizable</h4>
+        <p>Imprimimos tu propio diseño.</p>
+    </div>
+    <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <h4>Pago Seguro</h4>
+        <p>Garantía de satisfacción total.</p>
+    </div>
+</div>
+
+<div>
+    <h2 class="section-title">⚡ Promociones Destacadas</h2>
+    <div class="cards-wrapper">
+        @foreach (var p in Model)
+        {
+            <div class="promo-card">
+                <img src="@p.Imagen" alt="@p.Nombre" />
+                <div class="card-body">
+                    <span class="badge">@p.Categoria</span>
+                    <h3 class="card-title">@p.Nombre</h3>
+                    <div class="card-price">@p.Precio</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="testimonials">
+    <h2 class="section-title">⭐ Lo Que Dicen Nuestros Clientes</h2>
+    <div class="testi-grid">
+        <div class="testi-card">
+            <p>"Excelente calidad de la tela y el estampado no se despinta para nada con las lavadas. Recomendados 100%."</p>
+            <div class="testi-author">— Carlos R. (Mérida)</div>
+        </div>
+        <div class="testi-card">
+            <p>"Les pedí un diseño personalizado para mi grupo de amigos y quedó exactamente como lo queríamos."</p>
+            <div class="testi-author">— Andrea M. (Cancún)</div>
+        </div>
+        <div class="testi-card">
+            <p>"El envío llegó súper rápido y el empaque muy cuidado. La playera oversized está genial."</p>
+            <div class="testi-author">— Daniel G. (CDMX)</div>
+        </div>
+    </div>
+</div>

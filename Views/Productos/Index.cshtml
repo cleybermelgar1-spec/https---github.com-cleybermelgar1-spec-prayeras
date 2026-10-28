@@ -1,0 +1,42 @@
+@model IEnumerable<PrayerasJyC.Models.Producto>
+
+<style>
+    .catalog-header { text-align: center; padding: 40px 20px 10px; }
+    .catalog-header h2 { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; color: #00f0ff; }
+    
+    .grid-catalog { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+        gap: 2rem; 
+        padding: 30px 8% 80px; 
+    }
+    .product-box { 
+        background: #14141f; 
+        border-radius: 10px; 
+        padding: 15px; 
+        border: 1px solid #222233;
+        transition: all 0.3s;
+    }
+    .product-box:hover { border-color: #00f0ff; box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
+    .product-box img { width: 100%; height: 230px; object-fit: cover; border-radius: 6px; }
+    .product-cat { color: #8080a0; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-top: 12px; }
+    .product-name { font-size: 1rem; font-weight: 700; margin: 5px 0; color: #fff; }
+    .product-price { font-size: 1.2rem; font-weight: 900; color: #00f0ff; }
+</style>
+
+<div class="catalog-header">
+    <h2>Catálogo Completo</h2>
+    <p style="color: #8080a0;">Elige tu diseño favorito o solicita tu estampado personalizado</p>
+</div>
+
+<div class="grid-catalog">
+    @foreach (var p in Model)
+    {
+        <div class="product-box">
+            <img src="@p.Imagen" alt="@p.Nombre" />
+            <div class="product-cat">@p.Categoria</div>
+            <div class="product-name">@p.Nombre</div>
+            <div class="product-price">@p.Precio</div>
+        </div>
+    }
+</div>

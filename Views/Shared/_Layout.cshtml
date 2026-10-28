@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playeras Personalizadas JyC — Streetwear & Custom Apparel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #0d0d12; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* Top Banner */
+        .top-bar {
+            background: linear-gradient(90deg, #ff007f, #7928ca);
+            color: white;
+            text-align: center;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header {
+            background: rgba(18, 18, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2a2a40;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo { color: #fff; font-size: 1.5rem; font-weight: 900; text-decoration: none; letter-spacing: 1px; }
+        .logo span { color: #ff007f; }
+        
+        nav a { 
+            color: #a0a0b8; 
+            text-decoration: none; 
+            margin-left: 1.8rem; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        nav a:hover { color: #00f0ff; text-shadow: 0 0 8px #00f0ff; }
+        
+        main { flex: 1; }
+        
+        /* Footer Pro */
+        footer { 
+            background: #050508; 
+            color: #8080a0; 
+            padding: 3rem 8% 1.5rem; 
+            border-top: 1px solid #1a1a2e;
+            margin-top: 4rem;
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-col h4 { color: #fff; font-size: 1rem; margin-bottom: 12px; font-weight: 800; text-transform: uppercase; }
+        .footer-col p, .footer-col a { color: #8080a0; font-size: 0.85rem; text-decoration: none; display: block; margin-bottom: 8px; }
+        .footer-col a:hover { color: #00f0ff; }
+        .footer-bottom { text-align: center; font-size: 0.8rem; border-top: 1px solid #14141f; padding-top: 1.5rem; color: #555566; }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        🚀 ENVÍOS GRATIS EN COMPRAS MAYORES A $500 MXN | 100% ALGODÓN PREMIUM
+    </div>
+
+    <header>
+        <a asp-controller="Home" asp-action="Index" class="logo">PRAYERAS <span>JyC</span></a>
+        <nav>
+            <a asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-controller="Home" asp-action="Index" asp-fragment="ofertas">Ofertas</a>
+            <a asp-controller="Productos" asp-action="Index">Colección</a>
+            <a asp-controller="Home" asp-action="Contacto">Contáctanos</a>
+            <a asp-controller="Home" asp-action="Faq">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>PrayerasJyC</h4>
+                <p>Especialistas en estampados personalizados, ropa urbana y moda personalizada de alta calidad.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <a asp-controller="Home" asp-action="Index">Inicio</a>
+                <a asp-controller="Home" asp-action="Index" asp-fragment="ofertas">Ofertas</a>
+                <a asp-controller="Productos" asp-action="Index">Catálogo</a>
+                <a asp-controller="Home" asp-action="Contacto">Realizar Pedido</a>
+                <a asp-controller="Home" asp-action="Faq">Preguntas Frecuentes</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>📍 Mérida, Yucatán, México</p>
+                <p>📧 contacto@prayerasjyc.com</p>
+                <p>📱 +52 (999) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PrayerasJyC — Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
